@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Tempat PKL</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <div class="header">
+        <h1>Edit Data Tempat PKL</h1>
+    </div>
+
+    <div class="container">
+        <a href="/list_tempat_pkl" class="back-button">Kembali</a>
+
+        <div class="card">
+            <form method="POST">
+
+                <p>Nama Tempat PKL</p>
+                <input type="text" name="nama_pkl" value="{{ data[1] }}" required>
+
+                <p>Lokasi PKL</p>
+                <input type="text" name="lokasi_pkl" value="{{ data[2] }}" required>
+
+                <p>Jarak</p>
+                <select name="jarak">
+                    <option value="Dekat" {% if data[3] == 'Dekat' %}selected{% endif %}>Dekat</option>
+                    <option value="Sedang" {% if data[3] == 'Sedang' %}selected{% endif %}>Sedang</option>
+                    <option value="Jauh" {% if data[3] == 'Jauh' %}selected{% endif %}>Jauh</option>
+                </select>
+
+                <p>Fasilitas</p>
+                <select name="fasilitas">
+                    <option value="Lengkap" {% if data[4] == 'Lengkap' %}selected{% endif %}>Lengkap</option>
+                    <option value="Cukup" {% if data[4] == 'Cukup' %}selected{% endif %}>Cukup</option>
+                    <option value="Kurang" {% if data[4] == 'Kurang' %}selected{% endif %}>Kurang</option>
+                </select>
+
+                <p>Reputasi</p>
+                <select name="reputasi">
+                    <option value="Sangat Baik" {% if data[5] == 'Sangat Baik' %}selected{% endif %}>Sangat Baik</option>
+                    <option value="Baik" {% if data[5] == 'Baik' %}selected{% endif %}>Baik</option>
+                    <option value="Cukup" {% if data[5] == 'Cukup' %}selected{% endif %}>Cukup</option>
+                </select>
+
+                <button type="submit">Update Data</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

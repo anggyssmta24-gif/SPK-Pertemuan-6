@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Kriteria</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <div class="header">
+        <h1>Data Kriteria</h1>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <table border="1" cellpadding="10" cellspacing="0" width="100%">
+                <tr>
+                    <th>ID</th>
+                    <th>Nama Kriteria</th>
+                    <th>Bobot</th>
+                    <th>Tipe</th>
+                </tr>
+
+                {% for item in kriteria %}
+                <tr>
+                    <td>{{ item[0] }}</td>
+                    <td>{{ item[1] }}</td>
+                    <td>{{ item[2] }}</td>
+                    <td>{{ item[3] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

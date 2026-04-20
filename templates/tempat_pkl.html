@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Tempat PKL</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <div class="header">
+        <h1>Data Tempat PKL</h1>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <h2>Tambah Tempat PKL</h2>
+
+            <form method="POST">
+
+                <p>Nama Tempat PKL</p>
+                <input type="text" name="nama_pkl" required>
+
+                <p>Lokasi PKL</p>
+                <input type="text" name="lokasi_pkl" required>
+
+                <p>Jarak</p>
+                <select name="jarak" required>
+                    <option value="Dekat">Dekat</option>
+                    <option value="Sedang">Sedang</option>
+                    <option value="Jauh">Jauh</option>
+                </select>
+
+                <p>Fasilitas</p>
+                <select name="fasilitas" required>
+                    <option value="Lengkap">Lengkap</option>
+                    <option value="Cukup">Cukup</option>
+                    <option value="Kurang">Kurang</option>
+                </select>
+
+                <p>Reputasi</p>
+                <select name="reputasi" required>
+                    <option value="Sangat Baik">Sangat Baik</option>
+                    <option value="Baik">Baik</option>
+                    <option value="Cukup">Cukup</option>
+                </select>
+
+                <br><br>
+                <button type="submit">Simpan</button>
+            </form>
+
+        </div>
+    </div>
+
+</body>
+</html>

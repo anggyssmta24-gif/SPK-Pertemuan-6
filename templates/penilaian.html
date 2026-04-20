@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Penilaian</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <div class="header">
+        <h1>Data Penilaian</h1>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <table border="1" cellpadding="10" cellspacing="0" width="100%">
+                <tr>
+                    <th>Kriteria</th>
+                    <th>Keterangan</th>
+                    <th>Nilai</th>
+                </tr>
+
+                {% for item in penilaian %}
+                <tr>
+                    <td>{{ item.kriteria }}</td>
+                    <td>{{ item.keterangan }}</td>
+                    <td>{{ item.nilai }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

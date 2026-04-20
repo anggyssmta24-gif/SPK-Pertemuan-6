@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hasil Ranking</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <div class="header">
+        <h1>Hasil Ranking Tempat PKL</h1>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <table border="1" cellpadding="10" cellspacing="0" width="100%">
+                <tr>
+                    <th>Ranking</th>
+                    <th>Nama Tempat PKL</th>
+                    <th>Lokasi</th>
+                    <th>Nilai Akhir</th>
+                </tr>
+
+                {% for item in hasil %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ item.nama_pkl }}</td>
+                    <td>{{ item.lokasi }}</td>
+                    <td>{{ item.nilai }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>
