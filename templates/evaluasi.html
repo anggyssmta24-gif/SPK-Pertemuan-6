@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Evaluasi Sistem</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h2 class="title">Evaluasi Sistem SPK</h2>
+
+    <div class="card">
+        <h3>Total Data PKL</h3>
+        <p class="highlight">{{ total_pkl }}</p>
+    </div>
+
+    <div class="card">
+        <h3>Distribusi Jarak</h3>
+        <ul>
+            {% for item in data_jarak %}
+                <li><span>{{ item[0] }}</span> <b>{{ item[1] }}</b></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="card">
+        <h3>Distribusi Fasilitas</h3>
+        <ul>
+            {% for item in data_fasilitas %}
+                <li><span>{{ item[0] }}</span> <b>{{ item[1] }}</b></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="card">
+        <h3>Distribusi Reputasi</h3>
+        <ul>
+            {% for item in data_reputasi %}
+                <li><span>{{ item[0] }}</span> <b>{{ item[1] }}</b></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="card">
+        <h3>Analisis Sistem</h3>
+        <p>
+            Sistem mampu memberikan rekomendasi berdasarkan kriteria jarak, fasilitas, dan reputasi.
+            Hasil ranking menunjukkan bahwa tempat PKL dengan nilai terbaik mendapatkan peringkat tertinggi.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Metrik Evaluasi</h3>
+        <ul>
+            <li><b>Kecepatan:</b> Sistem menghasilkan keputusan secara cepat.</li>
+            <li><b>Konsistensi:</b> Hasil tetap sama jika data tidak berubah.</li>
+            <li><b>Kesesuaian:</b> Ranking sesuai dengan nilai kriteria.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h3>Rekomendasi Pengembangan</h3>
+        <ul>
+            <li>Menambahkan metode AHP dan TOPSIS</li>
+            <li>Menambahkan grafik visualisasi</li>
+            <li>Menambahkan fitur login</li>
+            <li>Export laporan ke PDF</li>
+        </ul>
+    </div>
+
+</div>
+
+</body>
+</html>

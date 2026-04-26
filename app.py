@@ -176,6 +176,35 @@ def penilaian():
         {'kriteria': 'Reputasi', 'keterangan': 'Baik', 'nilai': 2},
         {'kriteria': 'Reputasi', 'keterangan': 'Cukup', 'nilai': 1},
     ]
+@app.route('/evaluasi')
+def evaluasi():
+    cur = mysql.connection.cursor()
+
+    # jumlah data PKL
+    cur.execute("SELECT COUNT(*) FROM tempat_pkl")
+    total_pkl = cur.fetchone()[0]
+
+    # jumlah berdasarkan jarak
+    cur.execute("SELECT jarak, COUNT(*) FROM tempat_pkl GROUP BY jarak")
+    data_jarak = cur.fetchall()
+
+    # jumlah berdasarkan fasilitas
+    cur.execute("SELECT fasilitas, COUNT(*) FROM tempat_pkl GROUP BY fasilitas")
+    data_fasilitas = cur.fetchall()
+
+    # jumlah berdasarkan reputasi
+    cur.execute("SELECT reputasi, COUNT(*) FROM tempat_pkl GROUP BY reputasi")
+    data_reputasi = cur.fetchall()
+
+    cur.close()
+
+    return render_template(
+        'evaluasi.html',
+        total_pkl=total_pkl,
+        data_jarak=data_jarak,
+        data_fasilitas=data_fasilitas,
+        data_reputasi=data_reputasi
+    )
 
     return render_template('penilaian.html', penilaian=data_penilaian)
 
